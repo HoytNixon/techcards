@@ -1,0 +1,14 @@
+body {
+	background-color: #000;
+	color: #7D0007;
+	font-size: 20px;
+}
+.container {
+	background-color: #fff;
+}
+.forms {
+	padding-top: 60px;
+}
+.forms_field {
+	border:3px solid #7D0007;
+}
