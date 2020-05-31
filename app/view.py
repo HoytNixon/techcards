@@ -17,7 +17,7 @@ def index():
 		quality = form.quality.data
 		remake_shablon(shifr, name, diametr, tolshina, typ, number, quality)
 
-		filename = 'static' + shifr + 'xlsx'
+		filename = 'static/' + shifr + '.xlsx'
 		send_techcard('perepciukdima@yandex.ru', 'Techcard', filename)
 
 		form.shifr.data = shifr

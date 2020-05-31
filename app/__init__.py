@@ -3,6 +3,6 @@ from flask_mail import Mail
 from .config import Configuration
 
 app= Flask(__name__)
-mail = Mail(app)
 app.config.from_object(Configuration)
+mail = Mail(app)
 from .import view

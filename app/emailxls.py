@@ -1,5 +1,5 @@
 from flask_mail import Message
-from app import mail
+from app import app, mail
 from threading import Thread
 
 def send_async_email(app, msg):
@@ -8,6 +8,7 @@ def send_async_email(app, msg):
 def send_techcard(to, subject, filename, **kwargs):
 	msg = Message(subject, recipients = [to])
 	with app.open_resource(filename) as file:
+		filename= filename.replace('static/','')
 		msg.attach(filename,'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', file.read())
 	async_mail = Thread(target=send_async_email, args = [app, msg])
 	async_mail.start()
