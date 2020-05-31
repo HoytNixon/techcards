@@ -1,7 +1,7 @@
 import openpyxl
 import datetime
 
-def change_value(str, new_value):
+def change_value(str, new_value, sheet):
 	sheet[str] = sheet[str].value.format(new_value)
 	
 def remake_shablon(shifr, name, diametr, tolshina, typ, number, quality):
@@ -13,13 +13,13 @@ def remake_shablon(shifr, name, diametr, tolshina, typ, number, quality):
 	parametr2='≤' + str(int(tolshina)*0.2)
 	
 	## Меняем шифр в шаблоне ##
-	change_value('O46', shifr)
+	change_value('O46', shifr, sheet)
 	
 	## Меняем наименование объекта ##
-	change_value('F48', name)
+	change_value('F48', name, sheet)
 	
 	## Меняем диаметр трубы ##
-	change_value('O51', diametr)
+	change_value('O51', diametr, sheet)
 	
 	if int(diametr) < 300:
 		sheet['A56'] = sheet['A56'].value.replace('x1', 'по всей длине шва.')
@@ -31,7 +31,7 @@ def remake_shablon(shifr, name, diametr, tolshina, typ, number, quality):
 		sheet['J83'] = sheet['J83'].value.format('8.-10')
 	
 	## Меняем толщину стенки ##
-	change_value('O52', tolshina)
+	change_value('O52', tolshina, sheet)
 	
 	## ТРЕБОВАНИЯ К ВЫПОЛНЕНИЮ ВИЗУАЛЬНОГО И ИЗМЕРИТЕЛЬНОГО КОНТРОЛЯ ##
 	if int(tolshina) > 20:
@@ -58,10 +58,10 @@ def remake_shablon(shifr, name, diametr, tolshina, typ, number, quality):
 			sheet['J88'] = sheet['J88'].value.format(parametr2)
 	
 	## Меняем номер удостоверения ##
-	change_value('N115', number)
+	change_value('N115', number, sheet)
 	
 	## Меняем тип сварного соединения ##
-	change_value('O54', typ)
+	change_value('O54', typ, sheet)
 
 	## Ширина облицовочного шва ##
 	if typ == 'РД':
@@ -94,10 +94,10 @@ def remake_shablon(shifr, name, diametr, tolshina, typ, number, quality):
 			sheet['J82']= '21-35 для РД     22-30 для авт. Сварки'
 	
 	## Меняем уровень качества ##
-	change_value('O50', quality)
+	change_value('O50', quality, sheet)
 	
 	## Меняем дату ##
-	change_value('L115', data)
+	change_value('L115', data, sheet)
 	
 	## Сохраняем новый ексель файл ##
 	wb.save(dirname.replace('shablon', str(shifr)))

@@ -3,12 +3,41 @@ body {
 	color: #7D0007;
 	font-size: 20px;
 }
-.container {
+h1,h2,h3,h4 {
+	font-family: 'Anton', sans-serif;
+	font-size: 100px;
+}
+p {
+	font-size: 13px;
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin-bottom: 0px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+label {
+	margin-bottom: 0;
+}
+.first {
 	background-color: #fff;
+	height: 95vh;
+}
+.second {
+	background-color: #fff;
+	height: 5vh;
+}
+.techcards {
+	text-align: center;
 }
 .forms {
-	padding-top: 60px;
+	padding-top: 20px;
+}
+.forms_div {
+	height: 80px; 
+	font-family: 'PT Sans Narrow', sans-serif;
 }
 .forms_field {
 	border:3px solid #7D0007;
+}
+.form-group {
+	margin: 0px;
 }
