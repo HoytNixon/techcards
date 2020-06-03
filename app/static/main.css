@@ -27,17 +27,32 @@ label {
 }
 .techcards {
 	text-align: center;
+	text-shadow: 0.05rem .2rem rgba(0,0,0,.2);
 }
 .forms {
 	padding-top: 20px;
+	max-height: 100%;
 }
 .forms_div {
-	height: 80px; 
+	height: 12.5%; 
 	font-family: 'PT Sans Narrow', sans-serif;
 }
 .forms_field {
 	border:3px solid #7D0007;
+	border-radius: 6px;
+	font-style: italic;
 }
 .form-group {
 	margin: 0px;
+}
+.forms_label {
+	letter-spacing: 1px;
+	text-shadow: 0.05rem .1rem rgba(0,0,0,.1);
+}
+.btn-info {
+	margin-top: 15px;
+}
+.errormessage {
+	font-size: 14px;
+	color:red;
 }

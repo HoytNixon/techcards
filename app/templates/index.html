@@ -19,7 +19,7 @@
   			</div>
   		</div>
   		<div class="row">
-		  	<div class="forms offset-2 col-md-6">
+		  	<div class="forms offset-2 col-md-6 col-md-6">
           {% with messages = get_flashed_messages() %}
             {% if messages %}
             <div class="alert alert-success" role="alert">
@@ -39,9 +39,15 @@
             </div>
             <div class="form-group forms_div">
               {{ form.diametr.label(class='control-label forms_label') }} {{ form.diametr(class="form-control forms_field") }}
+              {% for error in form.diametr.errors %}
+                <span class="errormessage">{{error}}</span>
+              {% endfor %}
             </div>
             <div class="form-group forms_div">
               {{ form.tolshina.label(class='control-label forms_label') }} {{ form.tolshina(class="form-control forms_field") }}
+              {% for error in form.tolshina.errors %}
+                <span class="errormessage">{{error}}</span>
+              {% endfor %}
             </div>
             <div class="form-group forms_div">
               {{ form.number.label(class='control-label forms_label') }} {{ form.number(class="form-control forms_field") }}
@@ -59,8 +65,8 @@
     </div>
     <div class="container second">
       <div class="row">
-        <div class="offset-2 col-md-6 lasttext">
-          <p>Сделано на Flaske.  Сварачно-монтажный трест.  Алексей Деменков. </p>
+        <div class="offset-2 col-md-6 col-md-6 lasttext">
+          <p>Создано с использованием Flask.  Сварачно-монтажный трест.  Алексей Деменков. </p>
         </div>
       </div>
     </div>

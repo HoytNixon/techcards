@@ -3,11 +3,11 @@ from flask import render_template, request, url_for, redirect, flash
 from .forms import Wform
 from .remake_xls import remake_shablon
 from .emailxls import send_techcard
-
+import os
 @app.route('/', methods =['GET', 'POST'])
 def index():
 	form = Wform()
-	if request.method == 'POST':
+	if form.validate_on_submit():
 		shifr = form.shifr.data
 		name = form.name.data
 		diametr= form.diametr.data
@@ -18,7 +18,12 @@ def index():
 		remake_shablon(shifr, name, diametr, tolshina, typ, number, quality)
 
 		filename = 'static/' + shifr + '.xlsx'
-		send_techcard('perepciukdima@yandex.ru', 'Techcard', filename)
+		##  отправить файл по почте ##
+		#send_techcard(app.config['MAIL_RECIPIENT'], name, filename)
+
+		## Удалить после отправки ##
+		#path = os.path.join(os.path.abspath(os.path.dirname(__file__)), filename)
+		#os.remove(path)
 
 		form.shifr.data = shifr
 		form.name.data = name
